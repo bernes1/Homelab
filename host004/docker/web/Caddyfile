@@ -1,0 +1,14 @@
+duky.dev {
+	reverse_proxy portfolio:8080
+}
+
+irc.duky.dev {
+	reverse_proxy thelounge:9000
+}
+
+lreplass.no {
+    reverse_proxy lreplass-frontend:8083
+}
+api.lreplass.no {
+    reverse_proxy lreplass-backend:3001
+}
