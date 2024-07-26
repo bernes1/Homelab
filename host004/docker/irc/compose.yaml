@@ -4,6 +4,12 @@ services:
     container_name: thelounge
     ports:
       - "9000:9000"
+    networks:
+      - webnet
     restart: always
     volumes:
       - ~/.thelounge:/var/opt/thelounge # bind lounge config from the host's file system
+
+networks:
+  webnet:
+    external: true
