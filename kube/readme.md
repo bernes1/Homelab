@@ -13,29 +13,17 @@ customization:
             - siderolabs/qemu-guest-agent
 
 ```
+## setup
+
+link to the terraform provider docs from [telmate](https://registry.terraform.io/providers/Telmate/proxmox/latest/docs). 
 
 
-
-make a file called provider.tfvars . 
+Make a file called this file with the following contents.
 ```
-variable "pm_api_url" {
-  description = "Proxmox API URL"
-  type        = string
-  default     = "https://your-proxmox-host:8006/api2/json"
-}
-
-variable "pm_user" {
-  description = "Proxmox API User"
-  type        = string
-  default     = "example_user"
-}
-
-
-variable "pm_password" {
-  description = "Proxmox API Password"
-  type        = string
-  default     = "password here"
-}
+ // kube/terraform/provider.tfvars
+ pm_api_url = "https://your-proxmox-host:8006/api2/json"
+ pm_user = "example_user"
+ pm_password = "password here"
 ```
 
 run this command in the terraform folder.
