@@ -1,0 +1,17 @@
+machine:
+  network:
+    hostname: example-main-0
+    interfaces:
+      - interface: eth0 # The interface name.
+        addresses:
+          - 10.30.10.10/24
+        routes:
+          - network: 0.0.0.0/0 # The route's network.
+            gateway: 192.168.0.1 # The route's gateway.
+        dhcp: true
+
+    nameservers:
+      - 192.168.0.1
+      - 8.8.4.4
+      - 8.8.8.8
+      - 1.1.1.1
