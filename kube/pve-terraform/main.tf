@@ -1,9 +1,11 @@
 resource "proxmox_vm_qemu" "talos-cp" {
   count       = 3
-  name        = "talos-cp0${count.index}"
+  name        = "talos-cp0${count.index + 1}"
+  vmid = 200 + count.index  
   target_node = "pve01"
   clone       = "talos-template"
   agent       = 1
+  skip_ipv6   = true
 
   disks {
     scsi {
@@ -29,10 +31,14 @@ resource "proxmox_vm_qemu" "talos-cp" {
 
 resource "proxmox_vm_qemu" "talos-node" {
   count       = 3
-  name        = "talos-node0${count.index}"
+  name        = "talos-node0${count.index + 1}"
+  vmid = 300 + count.index    
   target_node = "pve01"
   clone       = "talos-template"
   agent       = 1
+  skip_ipv6   = true
+
+  depends_on = [proxmox_vm_qemu.talos-cp]
 
   disks {
     scsi {
